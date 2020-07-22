@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
-@FeignClient(value = "PRODUCT-DATA-SERVICE")
+@FeignClient(value = "PRODUCT-DATA-SERVICE", fallback = ProductClientFeignHystrix.class)
 public interface ProductClientFeign {
     @PostMapping("/products")
     public List<Product> listProdcuts();
